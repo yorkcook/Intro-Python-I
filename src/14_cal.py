@@ -23,21 +23,15 @@ import sys
 import calendar
 from datetime import datetime
 
-def cal():
+def cal(*args):
+  current_month = datetime.now().month
+  current_year = datetime.now().year
   if len(sys.argv) == 1:
-    # datetime.today()
-    print(datetime.today())
-    # month = datetime.now().month
-    # year = datetime.now().year
-
+    calendar.prmonth(current_year, current_month, w=1, l=1)
   elif len(sys.argv) == 2:
-    month = int(sys.argv[1])
-    year = datetime.now().year
-
+     calendar.prmonth(int(sys.argv[1]), current_month, w=1, l=1)
   elif len(sys.argv) == 3:
-    month = int(sys.argv[1])
-    year = int(sys.argv[2])
-
+    calendar.prmonth(int(sys.argv[1]), int(sys.argv[2]), w=1, l=1)
   else:
     print('Format expects month and year broooo!')
   exit()
